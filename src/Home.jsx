@@ -1,6 +1,18 @@
 import { useEffect, useState } from "react";
 import { getAccessToken } from "./utils";
 
+const { VITE_CLIENT_ID } = import.meta.env;
+const { VITE_REDIRECT_URI } = import.meta.env;
+const scopes = [
+  "user-top-read",
+  "user-read-currently-playing",
+  "user-read-recently-played",
+  "user-read-private",
+];
+function authorizeSpotify() {
+  const authUrl = `https://accounts.spotify.com/authorize?client_id=${VITE_CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(VITE_REDIRECT_URI)}&scope=${encodeURIComponent(scopes.join(" "))}`;
+  window.location.href = authUrl;
+}
 function Home() {
   const [userProfile, setUserProfile] = useState(null);
 
