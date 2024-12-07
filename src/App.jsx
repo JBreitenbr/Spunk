@@ -1,9 +1,16 @@
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Callback from "./Callback";
+import Home from "./Home";
 
-export default function App() {
+function App() {
   return (
-    <main>
-      React ⚛️ + Vite ⚡ + Replit
-    </main>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/redirect" element={<Callback />} />
+      </Routes>
+    </Router>
+  );
 }
+
+export default App;
