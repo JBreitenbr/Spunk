@@ -6,8 +6,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/redirect" element={<Callback />} />
+        <Route path="/Spunk" element={<Home />} />
+        <Route path="/Spunk/redirect" element={<Callback />} />
       </Routes>
     </Router>
   );
