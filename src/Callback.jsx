@@ -16,7 +16,8 @@ function Callback() {
       localStorage.setItem("spotify_token_expiry", Date.now() + expiresIn * 1000);
 
       // Redirect to the main page
-      navigate("/Spunk");
+      //navigate("/Spunk");
+      document.write(hash);
     } else {
       console.error("Authorization failed");
     }
