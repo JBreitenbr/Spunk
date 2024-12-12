@@ -12,11 +12,13 @@ const scopes = [
 function authorizeSpotify() {
   const authUrl = `https://accounts.spotify.com/authorize?client_id=${VITE_CLIENT_ID}&response_type=token&redirect_uri=${encodeURIComponent(VITE_REDIRECT_URI)}&scope=${encodeURIComponent(scopes.join(" "))}`;
   window.location.href = authUrl;
-  setSpunk(authUrl);
+  setSpunk(authUrl.toString().substring(0, authUrl.toString().length - 56));
+  //document.write(typeof authUrl);
 }
 function Home() {
  const [userProfile, setUserProfile] = useState(null);
 const [spunk,setSpunk]="";
+const [vari,setVari]="";
   useEffect(() => {
     const token = getAccessToken();
 
@@ -29,7 +31,8 @@ const [spunk,setSpunk]="";
         .then((response) => response.json())
         .then((data) => setUserProfile(data))
         .catch((error) => console.error("Error fetching profile:", error));*/
-      document.write(token);
+      //document.write(token+"heureka");
+      //setVari(token);
     }
   }, []);
 
